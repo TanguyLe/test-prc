@@ -7,26 +7,18 @@ import './App.css';
 
 import Question from './Question';
 import data from './data/questions.json'
+import {objectValuesSum} from "./utils";
 
-// Preparing the categories
-let categories = data.map(
-    (question) => Object.keys(question.answers).map(
-        (key) => Object.keys(question.answers[key])
-    )
-);
-categories = [].concat.apply([], categories);
-categories = [].concat.apply([], categories);
-const allCategories = [...new Set(categories)];
-
-function objectValuesSum(obj) {
-    return Object.keys(obj).reduce(
-        (sum, key) => sum + parseFloat(obj[key] || 0),
-        0
-    );
-}
+const allCategories = {
+    "health": "Santé et Hygiène",
+    "dumbness": "Stupidité",
+    "rules": "Respect des règles",
+    "moral": "Moralité",
+    "productivity": "Productivité"
+};
 
 const initialState = {
-    score: allCategories.reduce((o, key) => ({...o, [key]: 0}), {}),
+    score: Object.keys(allCategories).reduce((o, key) => ({...o, [key]: 0}), {}),
     currentQuestionIndex: 0
 };
 
@@ -54,12 +46,14 @@ class App extends React.Component {
         let display = "";
 
         if (this.state.currentQuestionIndex === data.length) {
-            let scoreValues = allCategories.map((category) => this.state.score[category]);
+            let scoreValues = Object.keys(allCategories).map(
+                (category) => Math.max(0, this.state.score[category])
+            );
 
             display = <div><br/>C'est fini, ton score est {objectValuesSum(this.state.score)} !
                 <Radar
                     data={{
-                        labels: allCategories,
+                        labels: Object.values(allCategories),
                         datasets: [{
                             data: scoreValues,
                             backgroundColor: "red",
@@ -71,7 +65,7 @@ class App extends React.Component {
                     options={
                         {
                             "legend": {"display": false},
-                            "scale": {"ticks": {"display": true, "min": -20}}
+                            "scale": {"ticks": {"display": true}}
                         }
                     }
                 />
