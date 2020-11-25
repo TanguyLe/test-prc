@@ -34,7 +34,7 @@ class App extends React.Component {
     handleAnswerClick(scoreChanges) {
         let newScore = JSON.parse(JSON.stringify(this.state.score));
         for (const category of Object.keys(scoreChanges))
-            newScore[category] += scoreChanges[category];
+            newScore[category] = Math.max(0, newScore[category] + scoreChanges[category]);
 
         this.setState({
             score: newScore,
@@ -47,7 +47,7 @@ class App extends React.Component {
 
         if (this.state.currentQuestionIndex === data.length) {
             let scoreValues = Object.keys(allCategories).map(
-                (category) => Math.max(0, this.state.score[category])
+                (category) => this.state.score[category]
             );
 
             display = <div><br/>C'est fini, ton score est {objectValuesSum(this.state.score)} !
