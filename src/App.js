@@ -33,6 +33,7 @@ class App extends React.Component {
         if (this.state.currentQuestionIndex === data.length)
             display = <div>C'est fini, ton score est {this.state.score} !
                 <button className="link-button" onClick={() => {this.setState(initialState)}}>
+                    <br/>
                     Le refaire.
                 </button>
         </div>;
