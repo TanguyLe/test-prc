@@ -1,6 +1,7 @@
 import React from "react";
 
 function Question(props) {
+    const answers = props.question.answers;
     return (
         <div>
             <p>
@@ -8,10 +9,10 @@ function Question(props) {
             </p>
             {
                 Object.keys(props.question.answers).map(
-                    (answer, value) => (
+                    (answer, index) => (
                         <button
-                            onClick={() => props.onClickButton(value)}
-                            key={value}>
+                            onClick={() => props.onClickButton(answers[answer])}
+                            key={index}>
                             {answer}
                         </button>
                     )
