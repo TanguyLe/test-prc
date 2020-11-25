@@ -1,0 +1,115 @@
+[
+  {
+    "question": "Respectez-vous la distance de sécurité d'1m ?",
+    "answers": {
+      "Oui": 0,
+      "Non": 1
+    }
+  },
+  {
+    "question": "Avez-vous déjà retiré votre masque pour parler à quelqu'un ?",
+    "answers": {
+      "Oui": 1,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Avez-vous déjà porté votre masque de la mauvaise manière ?",
+    "answers": {
+      "Oui": 1,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Avez-vous acheté du PQ à l'annonce du premier confinement ?",
+    "answers": {
+      "Oui": 3,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Êtes-vous déjà sorti sans attestation durant un confinement ?",
+    "answers": {
+      "Oui": 1,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Avez-vous écopé d'une amende ?",
+    "answers": {
+      "Oui": 3,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Avez-vous déjà rendu visite à un ami pendant le confinement ?",
+    "answers": {
+      "Oui": 2,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Combien de fois ?",
+    "answers": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5+": 6
+    }
+  },
+  {
+    "question": "Vous êtes-vous adonné à une pratique sportive pendant le confinement ?",
+    "answers": {
+      "Oui": 0,
+      "Non": 2
+    }
+  },
+  {
+    "question": "De quel type de sport s'agissait-il ?",
+    "answers": {
+      "Jogging": 3,
+      "Sexe": 2,
+      "Training en vision conférence": 0
+    }
+  },
+  {
+    "question": "Changez-vous votre masque toutes les 4 heures ?",
+    "answers": {
+      "Oui": 0,
+      "Non": 2
+    }
+  },
+  {
+    "question": "Vous est-il arrivé de porter un masque utilisé par une autre personne que vous-même ?",
+    "answers": {
+      "Oui": 5,
+      "Non": 0
+    }
+  },
+  {
+    "question": "Vous êtes-vous réunis à plus de 6 personne pendant la période de Covid-19 ?",
+    "answers": {
+      "Non": -1,
+      "Entre 6 et 10 personnes": 2,
+      "Entre 10 et 20 personnes": 5,
+      "Plus de 20 personnes": 7
+    }
+  },
+  {
+    "question": "Avez-vous coupé vos cheveux pendant le confinement ?",
+    "answers": {
+      "Non": 0,
+      "Oui, et ça allait": 1,
+      "Oui, et c'était raté": 4
+    }
+  },
+  {
+    "question": "Avez-vous déjà joué Corona Song de Renaud ?",
+    "answers": {
+      "Oui": 3,
+      "Non": -2
+    }
+  }
+]
