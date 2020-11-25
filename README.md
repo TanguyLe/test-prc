@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# test-prc
+
+This is a short "test" to evaluate how compliant you have been with the rules 
+against covid in France. The higher the score, the worse you were. Check it out !
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
