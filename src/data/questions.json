@@ -2,114 +2,114 @@
   {
     "question": "Respectez-vous la distance de sécurité d'1m ?",
     "answers": {
-      "Oui": 0,
-      "Non": 1
+      "Oui": {"rules": -3},
+      "Non": {"rules": 2, "health": 1}
     }
   },
   {
     "question": "Avez-vous déjà retiré votre masque pour parler à quelqu'un ?",
     "answers": {
-      "Oui": 1,
-      "Non": 0
+      "Oui": {"health": 2, "dumbness": 1},
+      "Non": {}
     }
   },
   {
     "question": "Avez-vous déjà porté votre masque de la mauvaise manière ?",
     "answers": {
-      "Oui": 1,
-      "Non": 0
+      "Oui": {"rules": 1, "health": 1, "dumbness": 2},
+      "Non": {"rules": -1}
     }
   },
   {
     "question": "Avez-vous acheté du PQ à l'annonce du premier confinement ?",
     "answers": {
-      "Oui": 3,
-      "Non": 0
+      "Oui": {"moral": 1, "health": -1, "dumbness": 3},
+      "Non": {}
     }
   },
   {
     "question": "Êtes-vous déjà sorti sans attestation durant un confinement ?",
     "answers": {
-      "Oui": 1,
-      "Non": 0
+      "Oui": {"rules": 2, "dumbness": 2},
+      "Non": {}
     }
   },
   {
     "question": "Avez-vous écopé d'une amende ?",
     "answers": {
-      "Oui": 3,
-      "Non": 0
+      "Oui": {"dumbness": 10},
+      "Non": {}
     }
   },
   {
     "question": "Avez-vous déjà rendu visite à un ami pendant le confinement ?",
     "answers": {
-      "Oui": 2,
-      "Non": 0
+      "Oui": {"rules": 2},
+      "Non": {}
     }
   },
   {
     "question": "Combien de fois ?",
     "answers": {
-      "0": 0,
-      "1": 1,
-      "2": 2,
-      "3": 3,
-      "4": 4,
-      "5+": 6
+      "0": {},
+      "1": {"moral": 1},
+      "2": {"moral": 2, "health": 1},
+      "3": {"moral": 3, "health": 2},
+      "4": {"moral": 4, "health": 3},
+      "5+": {"moral": 6, "health": 5, "dumbness": 1}
     }
   },
   {
     "question": "Vous êtes-vous adonné à une pratique sportive pendant le confinement ?",
     "answers": {
-      "Oui": 0,
-      "Non": 2
+      "Oui": {"health": -1, "productivity": -2},
+      "Non": {"health": 3, "productivity": 3}
     }
   },
   {
     "question": "De quel type de sport s'agissait-il ?",
     "answers": {
-      "Jogging": 3,
-      "Sexe": 2,
-      "Training en vision conférence": 0
+      "Jogging": {"moral": 1, "health": -1, "productivity": -1, "dumbness": 4},
+      "Sexe": {"health": 2, "dumbness": 1},
+      "Training en vision conférence": {"rules": -1, "health": -1, "productivity": -1}
     }
   },
   {
     "question": "Changez-vous votre masque toutes les 4 heures ?",
     "answers": {
-      "Oui": 0,
-      "Non": 2
+      "Oui": {},
+      "Non": {"rules": 1, "health": 3, "dumbness": 1}
     }
   },
   {
     "question": "Vous est-il arrivé de porter un masque utilisé par une autre personne que vous-même ?",
     "answers": {
-      "Oui": 5,
+      "Oui": {"moral": 1, "health": 4, "dumbness": 2},
       "Non": 0
     }
   },
   {
     "question": "Vous êtes-vous réunis à plus de 6 personne pendant la période de Covid-19 ?",
     "answers": {
-      "Non": -1,
-      "Entre 6 et 10 personnes": 2,
-      "Entre 10 et 20 personnes": 5,
-      "Plus de 20 personnes": 7
+      "Non": {},
+      "Entre 6 et 10 personnes": {"rules": 1, "moral": 1},
+      "Entre 10 et 20 personnes": {"rules": 1, "moral": 2},
+      "Plus de 20 personnes": {"rules": 1, "moral": 3, "dumbness": 2}
     }
   },
   {
     "question": "Avez-vous coupé vos cheveux pendant le confinement ?",
     "answers": {
-      "Non": 0,
-      "Oui, et ça allait": 1,
-      "Oui, et c'était raté": 4
+      "Non": {"health": 1},
+      "Oui, et ça allait": {"dumbness": 1},
+      "Oui, et c'était raté": {"dumbness": 3}
     }
   },
   {
     "question": "Avez-vous déjà joué Corona Song de Renaud ?",
     "answers": {
-      "Oui": 3,
-      "Non": -2
+      "Oui": {"moral": 1, "dumbness": 3},
+      "Non": {"health": -1, "dumbness": -3}
     }
   }
 ]
