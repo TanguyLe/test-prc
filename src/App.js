@@ -3,7 +3,7 @@ import React from "react";
 import logo from './logo.svg';
 import './App.css';
 
-import Question from './question';
+import Question from './Question';
 import data from './data/questions.json'
 
 const initialState = {
