@@ -30,7 +30,7 @@ class App extends React.Component {
     render() {
         let display = "";
 
-        if (this.state.currentQuestionIndex === data.length - 1)
+        if (this.state.currentQuestionIndex === data.length)
             display = <div>C'est fini, ton score est {this.state.score} !
                 <button className="link-button" onClick={() => {this.setState(initialState)}}>
                     Le refaire.
