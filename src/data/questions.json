@@ -81,11 +81,18 @@
       "Non": {"rules": 1, "health": 3, "dumbness": 1}
     }
   },
+ {
+    "question": "Avez-vous déjà porté un masque plus d'une semaine sans le laver ?",
+    "answers": {
+      "Oui": {"rules": 2, "moral": 1, "health": 4, "dumbness": 1},
+      "Non": {}
+    }
+  },
   {
     "question": "Vous est-il arrivé de porter un masque utilisé par une autre personne que vous-même ?",
     "answers": {
       "Oui": {"moral": 1, "health": 4, "dumbness": 2},
-      "Non": 0
+      "Non": {}
     }
   },
   {
@@ -110,6 +117,64 @@
     "answers": {
       "Oui": {"moral": 1, "dumbness": 3},
       "Non": {"health": -1, "dumbness": -3}
+    }
+  },
+  {
+    "question": "Vous êtes-vous déjà mouché dans votre masque ?",
+    "answers": {
+      "Oui": {"moral": 1, "health": 3, "dumbness": 2},
+      "Non": {}
+    }
+  },
+    {
+    "question": "Êtes-vous déjà resté plus de 5 jours sans sortir sous prétexte du confinement ?",
+    "answers": {
+      "Oui": {"rules": -1, "health": -1, "productivity": 2},
+      "Non": {"rules": 1}
+    }
+  },
+  {
+    "question": "Avez-vous perdu votre emploi à cause du Corona Virus ?",
+    "answers": {
+      "Oui": {"productivity": 3},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous déjà fait une nuit de plus de 12 heures pendant le confinement ?",
+    "answers": {
+      "Oui": {"health": 1, "productivity": 1},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous réalisé un jeu d'alcool en regardant une allocution présidentielle ?",
+    "answers": {
+      "Oui": {"productivity": 1, "dumbness": 1},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous souscrit à un abonnement sur une plateforme de streaming/VOD ?",
+    "answers": {
+      "Oui": {"productivity": 1},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous souscrit à un abonnement sur un site pornographique ?",
+    "answers": {
+      "Oui": {"health": 2, "productivity": 2},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Êtes-vous déjà resté plusieurs jours de confinement sans vous laver ?",
+    "answers": {
+      "Non": {},
+      "2 jours": {"health": 1, "productivity": 1},
+      "3 jours": {"health": 2, "productivity": 2},
+      "4 jours ou plus": {"health": 3, "productivity": 5, "dumbness": 2}
     }
   }
 ]
