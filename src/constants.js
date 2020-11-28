@@ -5,5 +5,6 @@ module.exports = {
         "rules": "Respect des règles",
         "moral": "Moralité",
         "productivity": "Productivité"
-    }
+    },
+    objectCopy: (object) => JSON.parse(JSON.stringify(object))
 };

@@ -11,7 +11,7 @@ function Question(props) {
                 Object.keys(props.question.answers).map(
                     (answer, index) => (
                         <button
-                            onClick={() => props.onClickButton(answers[answer])}
+                            onClick={() => props.onClickButton(answer, answers[answer])}
                             key={index}>
                             {answer}
                         </button>

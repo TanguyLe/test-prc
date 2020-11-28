@@ -1,18 +1,18 @@
 import React from "react";
 
-import {Radar} from 'react-chartjs-2';
-
 import logo from './logo.svg';
 import './App.css';
 
-import Question from './Question';
+import Question from './components/Question';
+import EndDisplay from "./components/EndDisplay";
 import data from './data/questions.json'
-import {allCategories} from "./constants";
+import {allCategories, objectCopy} from "./constants";
 
 
 const initialState = {
     score: Object.keys(allCategories).reduce((o, key) => ({...o, [key]: 0}), {}),
-    currentQuestionIndex: 0
+    currentQuestionIndex: 0,
+    currentConditionalDisplayed: false
 };
 
 class App extends React.Component {
@@ -20,19 +20,48 @@ class App extends React.Component {
         super(props);
 
         this.handleAnswerClick = this.handleAnswerClick.bind(this);
+        this.getNextQuestionIndex = this.getNextQuestionIndex.bind(this);
+        this.reset = this.reset.bind(this);
 
-        this.state = initialState;
+        this.state = objectCopy(initialState);
     }
 
-    handleAnswerClick(scoreChanges) {
-        let newScore = JSON.parse(JSON.stringify(this.state.score));
+    getNextQuestionIndex(answer) {
+        let nextQuestionIndex = this.state.currentQuestionIndex + 1;
+        while (true) {
+            if (nextQuestionIndex === data.length)
+                return nextQuestionIndex;
+
+            const nextQuestionCondition = data[nextQuestionIndex].condition;
+            if (
+                (nextQuestionCondition === undefined)
+                ||
+                ((answer === nextQuestionCondition) && !this.state.currentConditionalDisplayed)
+            )
+                return nextQuestionIndex;
+
+            nextQuestionIndex += 1;
+        }
+
+    }
+
+    handleAnswerClick(answer, scoreChanges) {
+        let newScore = objectCopy(this.state.score);
         for (const category of Object.keys(scoreChanges))
             newScore[category] = newScore[category] + scoreChanges[category];
 
+        const nextQuestionIndex = this.getNextQuestionIndex(answer);
+
         this.setState({
             score: newScore,
-            currentQuestionIndex: this.state.currentQuestionIndex + 1
+            currentQuestionIndex: nextQuestionIndex,
+            currentConditionalDisplayed:
+                nextQuestionIndex === data.length ? false : (data[nextQuestionIndex].condition !== undefined)
         })
+    }
+
+    reset() {
+        this.setState(objectCopy(initialState));
     }
 
     render() {
@@ -43,31 +72,7 @@ class App extends React.Component {
                 (category) => Math.max(0, this.state.score[category])
             );
 
-            display = <div><br/>C'est fini, ton score est {scoreValues.reduce((a, b) => a + b, 0)} !
-                <Radar
-                    data={{
-                        labels: Object.values(allCategories),
-                        datasets: [{
-                            data: scoreValues,
-                            backgroundColor: "red",
-                            fill: false,
-                            borderColor: "red"
-                        }]
-                    }}
-                    width={500} height={500}
-                    options={
-                        {
-                            "legend": {"display": false},
-                            "scale": {"ticks": {"display": true}}
-                        }
-                    }
-                />
-                <button className="link-button" onClick={() => {
-                    this.setState(initialState)
-                }}>
-                    Le refaire.
-                </button>
-            </div>;
+            display = <EndDisplay scoreValues={scoreValues} allCategories={allCategories} reset={this.reset}/>
         } else
             display = <Question question={data[this.state.currentQuestionIndex]}
                                 onClickButton={this.handleAnswerClick}/>;
@@ -77,6 +82,7 @@ class App extends React.Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     {display}
                 </header>
+                My-super-footer
             </div>
         );
     }
