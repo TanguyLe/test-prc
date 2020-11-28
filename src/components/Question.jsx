@@ -1,9 +1,11 @@
 import React from "react";
 
+import { Button } from "react-bootstrap";
+
 const ANSWERS_TO_COLORS = {
-    Oui: "btn btn-primary",
-    Non: "btn btn-danger",
-    default: "btn btn-warning"
+    Oui: "primary",
+    Non: "danger",
+    default: "warning"
 };
 
 function Question(props) {
@@ -16,12 +18,12 @@ function Question(props) {
             {
                 Object.keys(props.question.answers).map(
                     (answer, index) => (
-                        <button
-                            className={ANSWERS_TO_COLORS[answer] || ANSWERS_TO_COLORS.default}
+                        <Button
+                            variant={ANSWERS_TO_COLORS[answer] || ANSWERS_TO_COLORS.default}
                             onClick={() => props.onClickButton(answer, answers[answer])}
                             key={index}>
                             {answer}
-                        </button>
+                        </Button>
                     )
                 )
             }
