@@ -15,11 +15,11 @@ class EndDisplay extends React.Component {
                             borderColor: "red"
                         }]
                     }}
-                    width={500} height={500}
+                    // width={500} height={500}
                     options={
                         {
-                            "legend": {"display": false},
-                            "scale": {"ticks": {"display": true}}
+                            legend: {display: false},
+                            scale: {ticks: {display: true}, gridLines: {color: "white"}, angleLines: {color: "white"}}
                         }
                     }
                 />

@@ -31,7 +31,7 @@ html, body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: calc(100% - 50px);
+  height: calc(100% - 40px);
 }
 
 .App-link {
@@ -39,10 +39,10 @@ html, body {
 }
 
 .Footer {
-  height: 50px;
+  height: 40px;
   justify-content: center;
   display: flex;
-  font-size: calc(10px + 1vmin);
+  font-size: calc(3px + 1vmin);
 }
 
 @keyframes App-logo-spin {
