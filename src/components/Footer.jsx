@@ -4,7 +4,7 @@ import { ListGroup } from 'react-bootstrap';
 
 const Footer = () => {
   return <div className="Footer">
-            <ListGroup horizontal="md" variant="flush">
+            <ListGroup horizontal="md">
                 <ListGroup.Item className="list-group-item">
                     <a href="www.test-prc.fr">www.test-prc.fr</a> ne sauvegarde ou ne
                     partage aucune de vos infomations personnelles ou données de navigation.

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "react-bootstrap";
+import { Button, ButtonToolbar } from "react-bootstrap";
 
 const ANSWERS_TO_COLORS = {
     Oui: "primary",
@@ -10,25 +10,27 @@ const ANSWERS_TO_COLORS = {
 
 function Question(props) {
     const answers = props.question.answers;
-    return (
-        <div>
-            <p>
+    return [
+            <p key="questionLabel" style={{"marginTop": "20px"}}>
                 {props.question.question}
-            </p>
-            {
-                Object.keys(props.question.answers).map(
-                    (answer, index) => (
-                        <Button
-                            variant={ANSWERS_TO_COLORS[answer] || ANSWERS_TO_COLORS.default}
-                            onClick={() => props.onClickButton(answer, answers[answer])}
-                            key={index}>
-                            {answer}
-                        </Button>
+            </p>,
+            <ButtonToolbar key="answersButtonBar">
+                {
+                    Object.keys(props.question.answers).map(
+                        (answer, index) => (
+                            <Button
+                                className="mx-1 shadow-none"
+                                variant={ANSWERS_TO_COLORS[answer] || ANSWERS_TO_COLORS.default}
+                                onClick={() => props.onClickButton(answer, answers[answer])}
+                                active={false}
+                                key={index}>
+                                {answer}
+                            </Button>
+                        )
                     )
-                )
-            }
-        </div>
-    );
+                }
+            </ButtonToolbar>
+        ];
 }
 
 export default Question;
