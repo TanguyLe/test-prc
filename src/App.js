@@ -5,6 +5,7 @@ import './App.css';
 
 import Question from './components/Question';
 import EndDisplay from "./components/EndDisplay";
+import Footer from "./components/Footer";
 import data from './data/questions.json'
 import {allCategories, objectCopy} from "./constants";
 
@@ -82,7 +83,7 @@ class App extends React.Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     {display}
                 </header>
-                My-super-footer
+                <Footer/>
             </div>
         );
     }
