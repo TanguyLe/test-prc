@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import data from './data/questions.json'
 import {allCategories, objectCopy} from "./constants";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const initialState = {
     score: Object.keys(allCategories).reduce((o, key) => ({...o, [key]: 0}), {}),

@@ -42,6 +42,7 @@ html, body {
   height: 50px;
   justify-content: center;
   display: flex;
+  font-size: calc(10px + 1vmin);
 }
 
 @keyframes App-logo-spin {
