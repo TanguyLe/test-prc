@@ -71,12 +71,12 @@
     "condition": "Oui",
     "question": "Est-ce que c'était volontaire ?",
     "answers": {
-      "Oui": {"moral": 2, "dumbness": 5, "health":  1, "productivity":  2},
+      "Oui": {"moral": 2, "dumbness": 2, "health":  1, "productivity":  2},
       "Non": {}
     }
   },
   {
-    "question": "Avez-vous perdu votre emploi à cause du Corona Virus ?",
+    "question": "Avez-vous perdu votre emploi à cause du Covid-19 ?",
     "answers": {
       "Oui": {"productivity": 5},
       "Non": {}
@@ -90,7 +90,7 @@
     }
   },
   {
-    "question": "Avez-vous déjà utilisé le Covid-19 pour fuir un date raté ?",
+    "question": "Avez-vous déjà utilisé le Covid-19 comme prétexte pour fuir un date raté ?",
     "answers": {
       "Oui": {"moral": 1},
       "Non": {}
@@ -155,6 +155,13 @@
     }
   },
   {
+    "question": "Avez-vous déjà reçu une amende pour non port du masque ?",
+    "answers": {
+      "Oui": {"health": 1, "dumbness": 3, "rules":  3},
+      "Non": {}
+    }
+  },
+  {
     "question": "Avez-vous déjà réalisé un test PCR ?",
     "answers": {
       "Oui": {"health": -1},
@@ -171,24 +178,23 @@
     }
   },
   {
-    "question": "Avez-vous attrapé le Corona Virus dans un centre de dépistage ?",
+    "question": "Avez-vous attrapé le Covid-19 dans un centre de dépistage ?",
     "answers": {
       "Oui": {"health": 2, "dumbness": 2},
       "Non": {}
     }
   },
   {
-    "question": "Êtes-vous revenu d'un dépistage sérologique en étant séropositif ?",
+    "question": "Êtes-vous déjà revenu d'un test sérologique en étant séropositif ?",
     "answers": {
       "Oui": {"moral": 1, "health": 5, "dumbness": 3},
       "Non": {}
     }
   },
   {
-    "condition" : "Oui",
-    "question": "Avez-vous confondu test PCR et test VIH ?",
+    "question": "Avez-vous confondu sérologique et séropositif dans une phrase ?",
     "answers": {
-      "Oui": {"health": 1, "moral": 1},
+      "Oui": {"dumbness": 2, "moral": 1},
       "Non": {"dumbness": -1}
     }
   },
@@ -213,7 +219,15 @@
       "Oui": {"dumbness": 10},
       "Non": {}
     }
-  },  {
+  },
+  {
+    "question": "Avez-vous déjà rempli une attestation avec de fausses informations ?",
+    "answers": {
+      "Oui": {"rules": 2, "moral":  1},
+      "Non": {"moral":  2, "rules":  -2}
+    }
+  },
+  {
   "question": "Vous êtes-vous adonné à une pratique sportive pendant le confinement ?",
   "answers": {
     "Oui": {"health": -1, "productivity": -2},
@@ -225,8 +239,9 @@
     "question": "De quel type de sport s'agissait-il ?",
     "answers": {
       "Jogging": {"moral": 1, "health": -1, "productivity": -1, "dumbness": 4},
+      "Foot avec les voisins": {"moral": 3, "health": 1, "dumbness": 4},
       "Sexe": {"health": 2, "dumbness": 1},
-      "Training en visio-conférence": {"rules": -1, "health": -1, "productivity": -1}
+      "Fitness en visio-conférence": {"health": -1, "productivity": -1}
     }
   },
   {
@@ -256,17 +271,45 @@
     }
   },
   {
-    "question": "Êtes-vous déjà resté plus de 5 jours sans sortir sous prétexte du confinement ?",
+    "question": "Êtes-vous déjà resté plus de 5 jours sans sortir pendant le confinement ?",
     "answers": {
       "Oui": {"rules": -1, "health": -1, "productivity": 2},
       "Non": {"rules": 1}
     }
   },
   {
-    "question": "Avez-vous commandé à manger plus de 3 jours d'affilée",
+    "question": "Avez-vous commandé à manger pendant le confinement ?",
     "answers": {
-      "Oui": {"health": 1, "productivity": 2},
-      "Non": {}
+      "Oui": {},
+      "Non": {"health":  -2, "productivity":  -2}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Combien de fois ?",
+    "answers": {
+      "Entre 1 et 5 fois": {"health": 1, "productivity": 1},
+      "Entre 5 et 20 fois": {"health": 2, "productivity": 2},
+      "Entre 20 et 50 fois": {"health": 5, "productivity": 3},
+      "Plus de 50 fois": {"health": 10, "productivity": 5}
+    }
+  },
+  {
+    "question": "Avez-vous déjà bravé le couvre feu ?",
+    "answers": {
+      "Oui": {"rules":  3},
+      "Non": {"rules":  -1}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Avec quel moyen de locomotion ?",
+    "answers": {
+      "En uber/taxi": {"dumbness":  -1, "productivity":  -1},
+      "En transports en commun": {"dumbness":  1, "health":  1},
+      "En voiture": {"rules":  1},
+      "A pied": {"rules":  1, "dumbness": 3},
+      "Les quatre": {"rules":  2, "dumbness": 5}
     }
   },
   {
@@ -316,7 +359,7 @@
   {
     "question": "Vous êtes-vous déjà masturbé sur votre temps de télétravail ?",
     "answers": {
-      "Oui": {"moral": 1, "productivity": 2},
+      "Oui": {"moral": 2, "productivity": 2},
       "Non": {}
     }
   }
