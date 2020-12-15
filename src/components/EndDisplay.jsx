@@ -21,19 +21,8 @@ const FONT_SIZE = "calc(10px + 2vmin)";
 
 const getWhatsAppShareButton = (text) => {
     return <a href={"https://api.whatsapp.com/send?&text=" + text}>
-        <img src="WhatsApp_Logo_1.png" alt="WhatsApp" style={{width: "50px", height: "50px"}}/>
+        <img src="WhatsApp_Logo_1.png" alt="WhatsApp" style={{width: "45px", height: "45px"}}/>
     </a>
-};
-const getTwitterShareButton = (text) => {
-    return [
-        <a
-            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-            className="twitter-share-button"
-            data-show-count="false">
-            Tweet
-        </a>,
-        <script async src = "https://platform.twitter.com/widgets.js" charSet = "utf-8" > </script>
-    ]
 };
 
 
@@ -58,14 +47,14 @@ class EndDisplay extends React.Component {
 
         const shareText = (
             `Je viens de finir mon test prc sur http://www.test-prc.fr/ avec un score de ${score}, `
-            + "à ton tour de voir si tu as été respectueux du Covid !"
+            + "à ton tour de voir si tu as été(e) respectueux(se) du Covid !"
         );
 
         const scoreDiv = <div style={{"color":  '#' + this.rainbow.colourAt(score), "display": "inline"}}>{score}</div>;
         return <div>
                 <br/>
                 C'est fini, ton score est {scoreDiv} !
-                <div>{SENTENCES_SCORE[currentSentenceIndex]}</div>
+                <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
                 <Radar
                     data={{
                         labels: Object.values(this.props.allCategories),
@@ -76,7 +65,8 @@ class EndDisplay extends React.Component {
                             borderColor: "#dc3545"
                         }]
                     }}
-                    width="20vmin" height="20vmin"
+                     // width="100px"
+                    // height="20px"
                     options={
                         {
                             responsive: true,
