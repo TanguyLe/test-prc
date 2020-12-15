@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Button } from "react-bootstrap";
+
 import {Radar} from 'react-chartjs-2';
 import {arraySum, getScoresStats} from "../utils";
 
@@ -58,9 +60,9 @@ class EndDisplay extends React.Component {
                         }
                     }
                 />
-                <button className="link-button" onClick={this.props.reset}>
-                    Le refaire.
-                </button>
+                <Button onClick={this.props.reset}>
+                    Encore !
+                </Button>
             </div>;
     }
 }
