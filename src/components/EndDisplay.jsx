@@ -70,11 +70,14 @@ class EndDisplay extends React.Component {
             `Je viens de finir mon test prc sur http://www.test-prc.fr/ avec un score de ${totalScore}, `
             + "à ton tour de voir si tu as été(e) respectueux(se) du Covid !"
         );
+        const width = window.innerWidth|| document.documentElement.clientWidth||
+            document.body.clientWidth;
+
+        let labelSizes = width < 500 ? 10 : 20;
 
         const scoreDiv = <div style={{"color":  '#' + this.rainbow.colourAt(totalScore), "display": "inline"}}>{totalScore}</div>;
-        return <div>
-                <br/>
-                C'est fini, ton score est {scoreDiv} !
+        return <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <div>C'est fini, ton score est {scoreDiv} !</div>
                 <OverlayTrigger overlay={
                     <Tooltip>
                         Au cas où tu te demanderais, plus ton score est elevé et plus tu fais de la merde.
@@ -82,31 +85,32 @@ class EndDisplay extends React.Component {
                 }>
                     <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
                 </OverlayTrigger>
-                <Radar
-                    data={{
-                        labels: Object.values(this.props.allCategories),
-                        datasets: [{
-                            data: this.props.scoreValues,
-                            backgroundColor: "#dc3545",
-                            fill: false,
-                            borderColor: "#dc3545"
-                        }]
-                    }}
-                     // width="100px"
-                    // height="20px"
-                    options={
-                        {
-                            responsive: true,
-                            legend: {display: false},
-                            scale: {
-                                pointLabels: {fontColor: "white", fontSize: 20},
-                                ticks: {display: true, min: scoreMin, max: scoreMax, size: FONT_SIZE},
-                                gridLines: {color: "white"},
-                                angleLines: {color: "white"}
+                <div style={{postion: "relative", height: "50vh", width: "90vw"}}>
+                    <Radar
+                        data={{
+                            labels: Object.values(this.props.allCategories),
+                            datasets: [{
+                                data: this.props.scoreValues,
+                                backgroundColor: "#dc3545",
+                                fill: false,
+                                borderColor: "#dc3545"
+                            }]
+                        }}
+                        options={
+                            {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                legend: {display: false},
+                                scale: {
+                                    pointLabels: {fontColor: "white", fontSize: labelSizes},
+                                    ticks: {display: true, min: scoreMin, max: scoreMax, size: FONT_SIZE},
+                                    gridLines: {color: "white"},
+                                    angleLines: {color: "white"}
+                                }
                             }
                         }
-                    }
-                />
+                    />
+                </div>
                 <ButtonToolbar style={{justifyContent: "center"}} id={"button-toolbar"}>
                     {getWhatsAppShareButton(shareText)}
                     {getTwitterShareButton(shareText)}

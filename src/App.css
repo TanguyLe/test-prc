@@ -37,6 +37,7 @@ html, body {
   font-size: calc(10px + 2vmin);
   color: white;
   height: calc(100% - calc(35px + 1vmin));
+  padding: 10px;
 }
 
 .App-link {
