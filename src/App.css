@@ -12,8 +12,13 @@ html, body {
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 50vmin;
+  padding: 0 0 20px 0;
   pointer-events: none;
+}
+
+.end-display {
+  height: 20vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {

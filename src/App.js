@@ -69,6 +69,7 @@ class App extends React.Component {
 
     render() {
         let display = "";
+        let logoClassName = "App-logo";
 
         if (this.state.currentQuestionIndex === data.length) {
             let scoreValues = Object.keys(allCategories).map(
@@ -76,13 +77,14 @@ class App extends React.Component {
             );
 
             display = <EndDisplay scoreValues={scoreValues} allCategories={allCategories} reset={this.reset}/>
+            logoClassName += " end-display"
         } else
             display = <Question question={data[this.state.currentQuestionIndex]}
                                 onClickButton={this.handleAnswerClick}/>;
         return (
             <div className="App">
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    <img src={logo} className={logoClassName} alt="logo"/>
                     {display}
                 </header>
                 <Footer/>
