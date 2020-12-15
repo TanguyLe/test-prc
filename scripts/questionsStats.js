@@ -1,10 +1,15 @@
 const data = require("../src/data/questions.json");
 const cst = require("../src/constants");
 
-const categories = Object.keys(cst.allCategories);
+let categories = Object.keys(cst.allCategories);
+categories.push("total");
 
 let scoresStats = {};
 
+
+const arraySum = (array) => {
+    return array.reduce((a, b) => a + b, 0)
+};
 
 const getConditional = (data, questionIndex, answerLabel) => {
     // Let's look for a conditional for this answer
@@ -19,6 +24,14 @@ const getConditional = (data, questionIndex, answerLabel) => {
     return null;
 };
 
+const getCategoryScore = (category, scores) => {
+    if (category === "total")
+        return arraySum(Object.values(scores));
+
+    return scores[category];
+};
+
+
 for (const category of categories) {
     scoresStats[category] = {"min": 0, "max": 0};
 
@@ -29,31 +42,31 @@ for (const category of categories) {
         let possibleScoreValues = [];
 
         for (const [answerLabel, answerScores] of Object.entries(question.answers)) {
-            const categoryScore = answerScores[category];
-            if (categoryScore) {
-                let conditionalQuestion = getConditional(data, index, answerLabel);
+            const currentAnswerCategoryScore = getCategoryScore(category, answerScores);
 
-                if (conditionalQuestion) {
-                    var scoreValuesConditional = [];
+            if (currentAnswerCategoryScore) {
+                let answerConditionalQuestion = getConditional(data, index, answerLabel);
 
+                if (answerConditionalQuestion) {
                     // Same as global, but for the conditional
-                    for (const conditionalAnswerScores of Object.values(conditionalQuestion.answers)) {
-                        const conditionalCategoryScore = conditionalAnswerScores[category];
-                        if (conditionalCategoryScore)
-                            scoreValuesConditional.push(conditionalCategoryScore);
-                        else
-                            scoreValuesConditional.push(0);
-                    }
+                    for (const conditionalQuestionAnswers of Object.values(answerConditionalQuestion.answers)) {
+                        const conditionalQuestionAnswerCategoryScore = getCategoryScore(
+                            category, conditionalQuestionAnswers
+                        );
 
-                    possibleScoreValues.push(categoryScore + Math.min(...scoreValuesConditional));
-                    possibleScoreValues.push(categoryScore + Math.max(...scoreValuesConditional));
+                        if (conditionalQuestionAnswerCategoryScore)
+                            possibleScoreValues.push(
+                                currentAnswerCategoryScore + conditionalQuestionAnswerCategoryScore
+                            );
+                    }
                 }
                 else
-                    possibleScoreValues.push(categoryScore);
+                    possibleScoreValues.push(currentAnswerCategoryScore);
             }
             else
-                possibleScoreValues.push(0);
+                possibleScoreValues.push(0);  // In case that answer doesn't change the category, it means a 0 is okay
         }
+
         scoresStats[category].min += Math.min(...possibleScoreValues);
         scoresStats[category].max += Math.max(...possibleScoreValues);
     }
