@@ -1,6 +1,6 @@
 const data = require("../src/data/questions.json");
 
-const ALL_CATEGORIES = {
+export const ALL_CATEGORIES = {
     "health": "Santé et Hygiène",
     "dumbness": "Stupidité",
     "rules": "Respect des règles",
@@ -8,8 +8,8 @@ const ALL_CATEGORIES = {
     "productivity": "Productivité"
 };
 
-const objectCopy = (object) => JSON.parse(JSON.stringify(object));
-const arraySum = (array) =>  array.reduce((a, b) => a + b, 0);
+export const arraySum = (array) =>  array.reduce((a, b) => a + b, 0);
+export const objectCopy = (object) => JSON.parse(JSON.stringify(object));
 
 let categoriesNamesList = Object.keys(ALL_CATEGORIES);
 categoriesNamesList.push("total");
@@ -35,7 +35,7 @@ const getCategoryScore = (category, scores) => {
     return scores[category] | 0;
 };
 
-const getScoresStats = () => {
+export const getScoresStats = () => {
     let scoresStats = {};
 
     for (const category of categoriesNamesList) {
@@ -73,11 +73,4 @@ const getScoresStats = () => {
     }
 
     return scoresStats;
-};
-
-module.exports = {
-    ALL_CATEGORIES: ALL_CATEGORIES,
-    objectCopy: objectCopy,
-    arraySum: arraySum,
-    getScoresStats: getScoresStats
 };

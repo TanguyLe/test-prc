@@ -1,3 +1,3 @@
-const utils = require("../src/utils");
+import {getScoresStats} from "../src/utils"
 
-console.log(utils.getScoresStats());
+console.log(getScoresStats());
