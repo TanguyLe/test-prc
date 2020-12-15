@@ -7,10 +7,6 @@ categories.push("total");
 let scoresStats = {};
 
 
-const arraySum = (array) => {
-    return array.reduce((a, b) => a + b, 0)
-};
-
 const getConditional = (data, questionIndex, answerLabel) => {
     // Let's look for a conditional for this answer
     let searchIndex = questionIndex + 1;
@@ -26,7 +22,7 @@ const getConditional = (data, questionIndex, answerLabel) => {
 
 const getCategoryScore = (category, scores) => {
     if (category === "total")
-        return arraySum(Object.values(scores));
+        return cst.arraySum(Object.values(scores));
 
     return scores[category];
 };

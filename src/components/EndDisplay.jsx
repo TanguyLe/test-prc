@@ -1,10 +1,11 @@
 import React from "react";
 
 import {Radar} from 'react-chartjs-2';
+import {arraySum} from "../constants";
 
 class EndDisplay extends React.Component {
     render() {
-        return <div><br/>C'est fini, ton score est {this.props.scoreValues.reduce((a, b) => a + b, 0)} !
+        return <div><br/>C'est fini, ton score est {arraySum(this.props.scoreValues)} !
                 <Radar
                     data={{
                         labels: Object.values(this.props.allCategories),
