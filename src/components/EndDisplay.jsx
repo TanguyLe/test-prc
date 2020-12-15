@@ -30,27 +30,30 @@ class EndDisplay extends React.Component {
     constructor() {
         super();
         const scoresStats = getScoresStats();
-        this.rainbow = new Rainbow();
-        this.minScore = scoresStats["total"]["min"];
         this.maxScore = scoresStats["total"]["max"];
-        this.rainbow.setNumberRange(this.minScore, this.maxScore);
+
+        this.rainbow = new Rainbow();
+        this.rainbow.setNumberRange(scoresStats["total"]["min"], this.maxScore);
         this.rainbow.setSpectrum("#5cb85c", "#dc3545");
     }
     render() {
-        const score = arraySum(this.props.scoreValues);
+        const totalScore = arraySum(this.props.scoreValues);
+        const scores = Object.values(this.props.scoreValues);
+        const scoreMin = Math.min(...scores);
+        const scoreMax = Math.max(...scores);
 
-        const scorePercent = score / this.maxScore * 100;
+        const scorePercent = totalScore / this.maxScore * 100;
         let currentSentenceIndex = 1;
         while (Object.keys(SENTENCES_SCORE)[currentSentenceIndex] < scorePercent)
             currentSentenceIndex += 1;
         currentSentenceIndex = Object.keys(SENTENCES_SCORE)[currentSentenceIndex - 1];
 
         const shareText = (
-            `Je viens de finir mon test prc sur http://www.test-prc.fr/ avec un score de ${score}, `
+            `Je viens de finir mon test prc sur http://www.test-prc.fr/ avec un score de ${totalScore}, `
             + "à ton tour de voir si tu as été(e) respectueux(se) du Covid !"
         );
 
-        const scoreDiv = <div style={{"color":  '#' + this.rainbow.colourAt(score), "display": "inline"}}>{score}</div>;
+        const scoreDiv = <div style={{"color":  '#' + this.rainbow.colourAt(totalScore), "display": "inline"}}>{totalScore}</div>;
         return <div>
                 <br/>
                 C'est fini, ton score est {scoreDiv} !
@@ -73,7 +76,7 @@ class EndDisplay extends React.Component {
                             legend: {display: false},
                             scale: {
                                 pointLabels: {fontColor: "white", fontSize: 20},
-                                ticks: {display: true, min: this.minScore, max: this.maxScore, size: FONT_SIZE},
+                                ticks: {display: true, min: scoreMin, max: scoreMax, size: FONT_SIZE},
                                 gridLines: {color: "white"},
                                 angleLines: {color: "white"}
                             }
