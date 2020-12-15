@@ -178,10 +178,18 @@
     }
   },
   {
-    "question": "Êtes-vous revenu d'un dépistage PCR en étant positif au Sida ?",
+    "question": "Êtes-vous revenu d'un dépistage sérologique en étant séropositif ?",
     "answers": {
       "Oui": {"moral": 1, "health": 5, "dumbness": 3},
       "Non": {}
+    }
+  },
+  {
+    "condition" : "Oui",
+    "question": "Avez-vous confondu test PCR et test VIH ?",
+    "answers": {
+      "Oui": {"health": 1, "moral": 1},
+      "Non": {"dumbness": -1}
     }
   },
   {
@@ -255,6 +263,13 @@
     }
   },
   {
+    "question": "Avez-vous commandé à manger plus de 3 jours d'affilée",
+    "answers": {
+      "Oui": {"health": 1, "productivity": 2},
+      "Non": {}
+    }
+  },
+  {
     "question": "Avez-vous déjà fait une nuit de plus de 12 heures pendant le confinement ?",
     "answers": {
       "Oui": {"health": 1, "productivity": 2},
@@ -296,6 +311,13 @@
     "answers": {
       "Oui": {"rules": 2},
       "Non": {"productivity": 1}
+    }
+  },
+  {
+    "question": "Vous êtes-vous déjà masturbé sur votre temps de télétravail ?",
+    "answers": {
+      "Oui": {"moral": 1, "productivity": 2},
+      "Non": {}
     }
   }
 ]

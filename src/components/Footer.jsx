@@ -14,12 +14,6 @@ const Footer = () => {
                         <img src="GitHub-Mark-32px.png" alt="Github" style={{width: "20px", height: "20px"}}/>
                     </a>
                 </ListGroup.Item>
-                <ListGroup.Item className="list-group-item">
-                    Favicon made
-                  by <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">
-                      bqlqn
-                  </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
-                </ListGroup.Item>
             </ListGroup>
   </div>
 };
