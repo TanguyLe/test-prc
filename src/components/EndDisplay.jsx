@@ -9,7 +9,8 @@ const SENTENCES_SCORE = {
     1: "Tu as fait un score très, très bas, tu es es sûr d'être vivant ?",
     10: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
     25: "T'as plutôt fait attention, bravo !",
-    75: "Ouais, moyennement respecteux quand même.",
+    50: "T'as un peu cherché la merde quand même, ça commence.",
+    75: "Ouais, pas trop respectueux quand même. Tu y penses à la sensibilité du covid ?",
     90: "Ah là, t'as carrément abusé. Tu as activement contribué à la propagation du virus.",
     99: "Soit t'as fait exprès, soit le respect tu le cherche encore."
 };
