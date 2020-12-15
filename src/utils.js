@@ -82,7 +82,7 @@ const getScoresStats = () => {
 };
 
 module.exports = {
-    allCategories: ALL_CATEGORIES,
+    ALL_CATEGORIES: ALL_CATEGORIES,
     objectCopy: objectCopy,
     arraySum: arraySum,
     getScoresStats: getScoresStats

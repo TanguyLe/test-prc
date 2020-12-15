@@ -1,23 +1,187 @@
 [
   {
-    "question": "Respectez-vous la distance de sécurité d'1m ?",
+    "question": "Respectez-vous la distance de sécurité d'1m au travail ?",
     "answers": {
-      "Oui": {"rules": -3},
-      "Non": {"rules": 2, "health": 1}
+      "Oui": {"rules": -1},
+      "Non": {"rules": 1, "health": 1}
+    }
+  },
+  {
+    "question": "Respectez-vous la distance de sécurité d'1m avec vos proches ?",
+    "answers": {
+      "Oui": {"rules": -5},
+      "Non": {"rules": 1, "health": 2}
+    }
+  },
+  {
+    "question": "Avez-vous fait la bise depuis mars 2020 ?",
+    "answers": {
+      "Oui": {},
+      "Non": {"moral": -4, "health": -4}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Combien de fois ?",
+    "answers": {
+      "1-25": {"moral": 1, "health": 1},
+      "25-50": {"moral": 2, "health": 2},
+      "50-100": {"moral": 3, "health": 3},
+      "Plus de 1000": {"moral": 10, "health": 10, "dumbness": 10}
+    }
+  },
+  {
+    "question": "Allez-vous continuer à faire des checks du coude une fois tout le monde vacciné ?",
+    "answers": {
+      "Oui": {"dumbness": 3, "health":  -1},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Vous êtes-vous réunis à plus de 6 personne pendant la période de Covid-19 ?",
+    "answers": {
+      "Oui": {},
+      "Non": {"moral":  -3, "health":  -3}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Combien étiez-vous ?",
+    "answers": {
+      "Entre 6 et 10 personnes": {"rules": 1, "moral": 1},
+      "Entre 10 et 20 personnes": {"rules": 1, "moral": 2},
+      "Plus de 20 personnes": {"rules": 1, "moral": 3, "dumbness": 2}
+    }
+  },
+  {
+    "question": "Avez-vous fait des câlins à mamie pendant la période de Covid-19 ?",
+    "answers": {
+      "Oui": {"rules": 1, "moral": 3, "health": 4, "dumbness": 2},
+      "Non": {"dumbness": -1}
+    }
+  },
+  {
+    "question": "Avez-vous déjà écouté Corona Song de Renaud ?",
+    "answers": {
+      "Oui": {"moral": 1, "dumbness": 3},
+      "Non": {"health": -1, "dumbness": -3}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Est-ce que c'était volontaire ?",
+    "answers": {
+      "Oui": {"moral": 2, "dumbness": 5, "health":  1, "productivity":  2},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous perdu votre emploi à cause du Corona Virus ?",
+    "answers": {
+      "Oui": {"productivity": 5},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous réalisé un jeu d'alcool en regardant une allocution présidentielle ?",
+    "answers": {
+      "Oui": {"productivity": 2, "dumbness": 1, "health":  1},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous déjà utilisé le Covid-19 pour fuir un date raté ?",
+    "answers": {
+      "Oui": {"moral": 1},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous déjà porté votre masque sous le nez, sous le menton, sur les yeux ?",
+    "answers": {
+      "Oui": {"rules": 1, "health": 1, "dumbness": 2},
+      "Non": {"rules": -1}
     }
   },
   {
     "question": "Avez-vous déjà retiré votre masque pour parler à quelqu'un ?",
     "answers": {
-      "Oui": {"health": 2, "dumbness": 1},
+      "Oui": {"health": 1, "dumbness": 1, "moral":  1},
+      "Non": {"moral": -1}
+    }
+  },
+  {
+    "question": "Changez-vous votre masque toutes les 4 heures ?",
+    "answers": {
+      "Oui": {"health":  -3},
+      "Non": {"rules": 1, "health": 3, "dumbness": 1}
+    }
+  },
+  {
+    "question": "Avez-vous déjà porté un masque plus d'une semaine sans le laver ?",
+    "answers": {
+      "Oui": {"rules": 2, "moral": 1, "health": 4, "dumbness": 1},
       "Non": {}
     }
   },
   {
-    "question": "Avez-vous déjà porté votre masque de la mauvaise manière ?",
+    "condition": "Oui",
+    "question": "Avez-vous déjà lavé UN masque ?",
     "answers": {
-      "Oui": {"rules": 1, "health": 1, "dumbness": 2},
-      "Non": {"rules": -1}
+      "Oui": {},
+      "Non": {"rules": 1, "moral": 3, "health": 5, "dumbness": 3}
+    }
+  },
+  {
+    "question": "Vous est-il arrivé de porter un masque utilisé par une autre personne que vous-même ?",
+    "answers": {
+      "Oui": {"moral": 1, "health": 4, "dumbness": 2},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Vous êtes-vous déjà mouché dans votre masque ?",
+    "answers": {
+      "Oui": {"moral": 1, "health": 3, "dumbness": 2},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Avez-vous déjà essayé de confectionner un masque par vous-même ?",
+    "answers": {
+      "Non": {"productivity": 1},
+      "Oui, et c'était raté": {"productivity": 1, "dumbness": 1},
+      "Oui, et ça allait": {"health": -1}
+    }
+  },
+  {
+    "question": "Avez-vous déjà réalisé un test PCR ?",
+    "answers": {
+      "Oui": {"health": -1},
+      "Non": {}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Combien de fois ?",
+    "answers": {
+      "1 fois": {"health": 1, "rules": -1, "moral":  -1},
+      "Entre 1 et 5 fois": {"health": 2, "rules": -1, "moral": 1},
+      "Plus de 5 fois": {"health": 3, "rules": 3, "moral": 3, "dumbness":  3}
+    }
+  },
+  {
+    "question": "Avez-vous attrapé le Corona Virus dans un centre de dépistage ?",
+    "answers": {
+      "Oui": {"health": 2, "dumbness": 2},
+      "Non": {}
+    }
+  },
+  {
+    "question": "Êtes-vous revenu d'un dépistage PCR en étant positif au Sida ?",
+    "answers": {
+      "Oui": {"moral": 1, "health": 5, "dumbness": 3},
+      "Non": {}
     }
   },
   {
@@ -35,73 +199,44 @@
     }
   },
   {
+    "condition": "Oui",
     "question": "Avez-vous écopé d'une amende ?",
     "answers": {
       "Oui": {"dumbness": 10},
       "Non": {}
     }
+  },  {
+  "question": "Vous êtes-vous adonné à une pratique sportive pendant le confinement ?",
+  "answers": {
+    "Oui": {"health": -1, "productivity": -2},
+    "Non": {"health": 3, "productivity": 3}
+  }
+},
+  {
+    "condition": "Oui",
+    "question": "De quel type de sport s'agissait-il ?",
+    "answers": {
+      "Jogging": {"moral": 1, "health": -1, "productivity": -1, "dumbness": 4},
+      "Sexe": {"health": 2, "dumbness": 1},
+      "Training en visio-conférence": {"rules": -1, "health": -1, "productivity": -1}
+    }
   },
   {
-    "question": "Avez-vous déjà rendu visite à un ami pendant le confinement ?",
+    "question": "Avez-vous déjà rendu visite à un(e) ami(e) pendant le confinement ?",
     "answers": {
       "Oui": {"rules": 2},
       "Non": {}
     }
   },
   {
+    "condition": "Oui",
     "question": "Combien de fois ?",
     "answers": {
-      "0": {},
       "1": {"moral": 1},
-      "2": {"moral": 2, "health": 1},
-      "3": {"moral": 3, "health": 2},
-      "4": {"moral": 4, "health": 3},
-      "5+": {"moral": 6, "health": 5, "dumbness": 1}
-    }
-  },
-  {
-    "question": "Vous êtes-vous adonné à une pratique sportive pendant le confinement ?",
-    "answers": {
-      "Oui": {"health": -1, "productivity": -2},
-      "Non": {"health": 3, "productivity": 3}
-    }
-  },
-  {
-    "question": "De quel type de sport s'agissait-il ?",
-    "answers": {
-      "Jogging": {"moral": 1, "health": -1, "productivity": -1, "dumbness": 4},
-      "Sexe": {"health": 2, "dumbness": 1},
-      "Training en vision conférence": {"rules": -1, "health": -1, "productivity": -1}
-    }
-  },
-  {
-    "question": "Changez-vous votre masque toutes les 4 heures ?",
-    "answers": {
-      "Oui": {},
-      "Non": {"rules": 1, "health": 3, "dumbness": 1}
-    }
-  },
- {
-    "question": "Avez-vous déjà porté un masque plus d'une semaine sans le laver ?",
-    "answers": {
-      "Oui": {"rules": 2, "moral": 1, "health": 4, "dumbness": 1},
-      "Non": {}
-    }
-  },
-  {
-    "question": "Vous est-il arrivé de porter un masque utilisé par une autre personne que vous-même ?",
-    "answers": {
-      "Oui": {"moral": 1, "health": 4, "dumbness": 2},
-      "Non": {}
-    }
-  },
-  {
-    "question": "Vous êtes-vous réunis à plus de 6 personne pendant la période de Covid-19 ?",
-    "answers": {
-      "Non": {},
-      "Entre 6 et 10 personnes": {"rules": 1, "moral": 1},
-      "Entre 10 et 20 personnes": {"rules": 1, "moral": 2},
-      "Plus de 20 personnes": {"rules": 1, "moral": 3, "dumbness": 2}
+      "2": {"moral": 2, "health": 1, "rules": 1},
+      "3": {"moral": 3, "health": 2, "rules": 2},
+      "4": {"moral": 4, "health": 3, "rules": 3},
+      "5+": {"moral": 6, "health": 5, "dumbness": 1, "rules": 5}
     }
   },
   {
@@ -113,20 +248,6 @@
     }
   },
   {
-    "question": "Avez-vous déjà joué Corona Song de Renaud ?",
-    "answers": {
-      "Oui": {"moral": 1, "dumbness": 3},
-      "Non": {"health": -1, "dumbness": -3}
-    }
-  },
-  {
-    "question": "Vous êtes-vous déjà mouché dans votre masque ?",
-    "answers": {
-      "Oui": {"moral": 1, "health": 3, "dumbness": 2},
-      "Non": {}
-    }
-  },
-    {
     "question": "Êtes-vous déjà resté plus de 5 jours sans sortir sous prétexte du confinement ?",
     "answers": {
       "Oui": {"rules": -1, "health": -1, "productivity": 2},
@@ -134,31 +255,17 @@
     }
   },
   {
-    "question": "Avez-vous perdu votre emploi à cause du Corona Virus ?",
-    "answers": {
-      "Oui": {"productivity": 3},
-      "Non": {}
-    }
-  },
-  {
     "question": "Avez-vous déjà fait une nuit de plus de 12 heures pendant le confinement ?",
     "answers": {
-      "Oui": {"health": 1, "productivity": 1},
-      "Non": {}
-    }
-  },
-  {
-    "question": "Avez-vous réalisé un jeu d'alcool en regardant une allocution présidentielle ?",
-    "answers": {
-      "Oui": {"productivity": 1, "dumbness": 1},
+      "Oui": {"health": 1, "productivity": 2},
       "Non": {}
     }
   },
   {
     "question": "Avez-vous souscrit à un abonnement sur une plateforme de streaming/VOD ?",
     "answers": {
-      "Oui": {"productivity": 1},
-      "Non": {}
+      "Oui": {"productivity": 2},
+      "Non": {"productivity":  -1}
     }
   },
   {
@@ -171,10 +278,24 @@
   {
     "question": "Êtes-vous déjà resté plusieurs jours de confinement sans vous laver ?",
     "answers": {
-      "Non": {},
+      "Oui": {},
+      "Non": {"health":  -1}
+    }
+  },
+  {
+    "condition": "Oui",
+    "question": "Combien de jours ?",
+    "answers": {
       "2 jours": {"health": 1, "productivity": 1},
       "3 jours": {"health": 2, "productivity": 2},
       "4 jours ou plus": {"health": 3, "productivity": 5, "dumbness": 2}
+    }
+  },
+  {
+    "question": "Avez-vous organisé un rendez-vous amoureux pendant le confinement ?",
+    "answers": {
+      "Oui": {"rules": 2},
+      "Non": {"productivity": 1}
     }
   }
 ]

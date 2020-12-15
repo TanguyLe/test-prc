@@ -7,13 +7,13 @@ import Question from './components/Question';
 import EndDisplay from "./components/EndDisplay";
 import Footer from "./components/Footer";
 import data from './data/questions.json'
-import {allCategories, objectCopy} from "./utils";
+import {ALL_CATEGORIES, objectCopy} from "./utils";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const initialState = {
-    score: Object.keys(allCategories).reduce((o, key) => ({...o, [key]: 0}), {}),
+    score: Object.keys(ALL_CATEGORIES).reduce((o, key) => ({...o, [key]: 0}), {}),
     currentQuestionIndex: 0,
     currentConditionalDisplayed: false
 };
@@ -72,11 +72,11 @@ class App extends React.Component {
         let logoClassName = "App-logo";
 
         if (this.state.currentQuestionIndex === data.length) {
-            let scoreValues = Object.keys(allCategories).map(
+            let scoreValues = Object.keys(ALL_CATEGORIES).map(
                 (category) => Math.max(0, this.state.score[category])
             );
 
-            display = <EndDisplay scoreValues={scoreValues} allCategories={allCategories} reset={this.reset}/>
+            display = <EndDisplay scoreValues={scoreValues} allCategories={ALL_CATEGORIES} reset={this.reset}/>
             logoClassName += " end-display"
         } else
             display = <Question question={data[this.state.currentQuestionIndex]}
