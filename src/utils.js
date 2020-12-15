@@ -32,7 +32,7 @@ const getCategoryScore = (category, scores) => {
     if (category === "total")
         return arraySum(Object.values(scores));
 
-    return scores[category];
+    return scores[category] | 0;
 };
 
 const getScoresStats = () => {
@@ -49,28 +49,22 @@ const getScoresStats = () => {
 
             for (const [answerLabel, answerScores] of Object.entries(question.answers)) {
                 const currentAnswerCategoryScore = getCategoryScore(category, answerScores);
+                let answerConditionalQuestion = getConditional(data, index, answerLabel);
 
-                if (currentAnswerCategoryScore) {
-                    let answerConditionalQuestion = getConditional(data, index, answerLabel);
+                if (answerConditionalQuestion) {
+                    // Same as global, but for the conditional
+                    for (const conditionalQuestionAnswers of Object.values(answerConditionalQuestion.answers)) {
+                        const conditionalQuestionAnswerCategoryScore = getCategoryScore(
+                            category, conditionalQuestionAnswers
+                        );
 
-                    if (answerConditionalQuestion) {
-                        // Same as global, but for the conditional
-                        for (const conditionalQuestionAnswers of Object.values(answerConditionalQuestion.answers)) {
-                            const conditionalQuestionAnswerCategoryScore = getCategoryScore(
-                                category, conditionalQuestionAnswers
-                            );
-
-                            if (conditionalQuestionAnswerCategoryScore)
-                                possibleScoreValues.push(
-                                    currentAnswerCategoryScore + conditionalQuestionAnswerCategoryScore
-                                );
-                        }
+                        possibleScoreValues.push(
+                            currentAnswerCategoryScore + conditionalQuestionAnswerCategoryScore
+                        );
                     }
-                    else
-                        possibleScoreValues.push(currentAnswerCategoryScore);
                 }
                 else
-                    possibleScoreValues.push(0);  // In case that answer doesn't change the category, it means a 0 is ok
+                    possibleScoreValues.push(currentAnswerCategoryScore);
             }
 
             scoresStats[category].min += Math.min(...possibleScoreValues);
