@@ -58,7 +58,8 @@ class EndDisplay extends React.Component {
                 <br/>
                 C'est fini, ton score est {scoreDiv} !
                 <OverlayTrigger overlay={
-                    <Tooltip>Au cas où tu te demanderais, plus ton score est elevé et plus tu fais de la merde.
+                    <Tooltip>
+                        Au cas où tu te demanderais, plus ton score est elevé et plus tu fais de la merde.
                     </Tooltip>
                 }>
                     <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
