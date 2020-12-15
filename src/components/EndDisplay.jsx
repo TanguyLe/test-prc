@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "react-bootstrap";
+import {Button, ButtonToolbar, OverlayTrigger, Tooltip} from "react-bootstrap";
 import {Radar} from 'react-chartjs-2';
 import Rainbow from 'rainbowvis.js';
 
@@ -57,7 +57,12 @@ class EndDisplay extends React.Component {
         return <div>
                 <br/>
                 C'est fini, ton score est {scoreDiv} !
-                <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
+                <OverlayTrigger overlay={
+                    <Tooltip>Au cas où tu te demanderais, plus ton score est elevé et plus tu fais de la merde.
+                    </Tooltip>
+                }>
+                    <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
+                </OverlayTrigger>
                 <Radar
                     data={{
                         labels: Object.values(this.props.allCategories),
