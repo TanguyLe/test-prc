@@ -7,7 +7,7 @@ import Question from './components/Question';
 import EndDisplay from "./components/EndDisplay";
 import Footer from "./components/Footer";
 import data from './data/questions.json'
-import {allCategories, objectCopy} from "./constants";
+import {allCategories, objectCopy} from "./utils";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

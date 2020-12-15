@@ -1,11 +1,44 @@
 import React from "react";
 
 import {Radar} from 'react-chartjs-2';
-import {arraySum} from "../constants";
+import {arraySum, getScoresStats} from "../utils";
+
+const Rainbow = require('rainbowvis.js');
+
+const SENTENCES_SCORE = {
+    1: "Tu as fait un score très, très bas, tu es es sûr d'être vivant ?",
+    10: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
+    25: "T'as plutôt fait attention, bravo !",
+    75: "Ouais, moyennement respecteux quand même.",
+    90: "Ah là, t'as carrément abusé. Tu as activement contribué à la propagation du virus.",
+    99: "Soit t'as fait exprès, soit le respect tu le cherche encore."
+};
+
 
 class EndDisplay extends React.Component {
+    constructor() {
+        super();
+        const scoresStats = getScoresStats();
+        this.rainbow = new Rainbow();
+        this.minScore = scoresStats["total"]["min"];
+        this.maxScore = scoresStats["total"]["max"];
+        this.rainbow.setNumberRange(this.minScore, this.maxScore);
+        this.rainbow.setSpectrum("#5cb85c", "#dc3545");
+    }
     render() {
-        return <div><br/>C'est fini, ton score est {arraySum(this.props.scoreValues)} !
+        const score = arraySum(this.props.scoreValues);
+
+        const scorePercent = score / this.maxScore * 100;
+        let currentSentenceIndex = 1;
+        while (Object.keys(SENTENCES_SCORE)[currentSentenceIndex] < scorePercent)
+            currentSentenceIndex += 1;
+        currentSentenceIndex = Object.keys(SENTENCES_SCORE)[currentSentenceIndex - 1];
+
+        const scoreDiv = <div style={{"color":  '#' + this.rainbow.colourAt(score), "display": "inline"}}>{score}</div>;
+        return <div>
+                <br/>
+                C'est fini, ton score est {scoreDiv} !
+                <div>{SENTENCES_SCORE[currentSentenceIndex]}</div>
                 <Radar
                     data={{
                         labels: Object.values(this.props.allCategories),
