@@ -18,10 +18,28 @@ const SENTENCES_SCORE = {
 };
 
 const FONT_SIZE = "calc(10px + 2vmin)";
+const uriUrl = encodeURIComponent("http://www.test-prc.fr/");
 
 const getWhatsAppShareButton = (text) => {
-    return <a href={"https://api.whatsapp.com/send?&text=" + text}>
-        <img src="WhatsApp_Logo_1.png" alt="WhatsApp" style={{width: "45px", height: "45px"}}/>
+    return <a href={"https://api.whatsapp.com/send?&text=" + text} className="mx-1" target="_blank" rel="noreferrer">
+        <img src="WhatsApp_Logo_1.png" alt="WhatsApp" style={{width: "38px", height: "38px"}}/>
+    </a>
+};
+const getTwitterShareButton = (text) => {
+    const uriText = encodeURIComponent(text.replace(" sur http://www.test-prc.fr/", ''));
+
+    const linkHref = (
+        "https://twitter.com/intent/tweet?hashtags=testprc&ref_src=twsrc%5Etfw&text="
+        + uriText + "&tw_p=tweetbutton&url=" + uriUrl
+    );
+    return <a href={linkHref} className="mx-1" target="_blank" rel="noreferrer">
+        <img src="twitter-logo.png" alt="Tweet" style={{width: "52px", height: "52px"}}/>
+    </a>
+};
+const getFacebookShareButton = () => {
+    return <a href={"https://www.facebook.com/sharer/sharer.php?src=sdkpreparse&u=" + uriUrl}
+              className="mx-1" target="_blank" rel="noreferrer">
+        <img src="facebook-logo.png" alt="Facebook" style={{width: "35px", height: "35px"}}/>
     </a>
 };
 
@@ -89,8 +107,12 @@ class EndDisplay extends React.Component {
                         }
                     }
                 />
-                {getWhatsAppShareButton(shareText)}
-                <Button onClick={this.props.reset}>
+                <ButtonToolbar style={{justifyContent: "center"}} id={"button-toolbar"}>
+                    {getWhatsAppShareButton(shareText)}
+                    {getTwitterShareButton(shareText)}
+                    {getFacebookShareButton()}
+                </ButtonToolbar>
+                <Button className="mx-1 btn-sm" onClick={this.props.reset}>
                     Encore !
                 </Button>
             </div>;
