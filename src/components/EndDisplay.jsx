@@ -58,7 +58,7 @@ class EndDisplay extends React.Component {
     render() {
         const totalScore = arraySum(this.props.scoreValues);
         const scores = Object.values(this.props.scoreValues);
-        const scoreMin = Math.min(...scores);
+        const scoreMin = Math.min(0, ...scores);
         const scoreMax = Math.max(...scores);
 
         const scorePercent = totalScore / this.maxScore * 100;
