@@ -11,7 +11,7 @@ const ANSWERS_TO_COLORS = {
 function Question(props) {
     const answers = props.question.answers;
     return [
-            <p key="questionLabel" style={{"marginTop": "20px"}}>
+            <p key="questionLabel" className={"App-question"}>
                 {props.question.question}
             </p>,
             <ButtonToolbar key="answersButtonBar">

@@ -75,8 +75,12 @@ class EndDisplay extends React.Component {
 
         let labelSizes = width < 500 ? 10 : 20;
 
-        const scoreDiv = <div style={{"color":  '#' + this.rainbow.colourAt(totalScore), "display": "inline"}}>{totalScore}</div>;
-        return <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        const scoreDiv = (
+            <div style={{"color":  '#' + this.rainbow.colourAt(totalScore), "display": "inline"}}>
+                {totalScore}
+            </div>
+        );
+        return <div className={"App-column-container"}>
                 <div>C'est fini, ton score est {scoreDiv} !</div>
                 <OverlayTrigger overlay={
                     <Tooltip>
@@ -85,7 +89,7 @@ class EndDisplay extends React.Component {
                 }>
                     <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
                 </OverlayTrigger>
-                <div style={{postion: "relative", height: "50vh", width: "90vw"}}>
+                <div className="App-graph-container">
                     <Radar
                         data={{
                             labels: Object.values(this.props.allCategories),

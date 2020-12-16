@@ -77,13 +77,13 @@ class App extends React.Component {
             );
 
             display = <EndDisplay scoreValues={scoreValues} allCategories={ALL_CATEGORIES} reset={this.reset}/>
-            logoClassName += " end-display"
+            logoClassName += " App-end-display"
         } else
             display = <Question question={data[this.state.currentQuestionIndex]}
                                 onClickButton={this.handleAnswerClick}/>;
         return (
             <div className="App">
-                <header className="App-header">
+                <header className="App-header App-column-container">
                     <img src={logo} className={logoClassName} alt="logo"/>
                     {display}
                 </header>
