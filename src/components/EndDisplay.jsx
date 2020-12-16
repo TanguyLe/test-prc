@@ -101,6 +101,15 @@ class EndDisplay extends React.Component {
                         }}
                         options={
                             {
+                                tooltips: {
+                                    callbacks: {
+                                        title: (
+                                            (tooltipItems, data) =>
+                                                Object.values(this.props.allCategories)[tooltipItems[0].index]
+                                        )
+
+                                    }
+                                },
                                 responsive: true,
                                 maintainAspectRatio: false,
                                 legend: {display: false},
