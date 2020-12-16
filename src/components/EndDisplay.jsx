@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Button, ButtonToolbar, OverlayTrigger, Tooltip} from "react-bootstrap";
+import {Button, ButtonToolbar} from "react-bootstrap";
 import {Radar} from 'react-chartjs-2';
 import Rainbow from 'rainbowvis.js';
 
@@ -11,7 +11,7 @@ const SENTENCES_SCORE = {
     1: "Tu as fait un score très, très bas, tu es es sûr d'être vivant ?",
     10: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
     25: "T'as plutôt fait attention, continue comme ça bravo !",
-    50: "T'as un peu cherché la merde quand même, ça commence.",
+    50: "T'as un peu cherché les problèmes quand même, ça commence.",
     75: "Ouais, pas trop respectueux quand même. Tu y penses à la sensibilité du covid ?",
     90: "Ah là, t'as carrément abusé. Tu as activement contribué à la propagation du virus.",
     99: "Soit t'as fait exprès, soit le respect tu le cherche encore."
@@ -81,15 +81,13 @@ class EndDisplay extends React.Component {
                 {totalScore}
             </div>
         );
+
         return <div className={"App-column-container"}>
                 <div>C'est fini, ton score est {scoreDiv} !</div>
-                <OverlayTrigger overlay={
-                    <Tooltip>
-                        Au cas où tu te demanderais, plus ton score est elevé et plus tu fais de la merde.
-                    </Tooltip>
-                }>
-                    <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
-                </OverlayTrigger>
+                <div style={{fontSize: "10px"}}>
+                    Au cas où tu te demanderais, plus ton score est élevé et plus tu as fait de la merde.
+                </div>
+                <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
                 <div className="App-graph-container">
                     <Radar
                         data={{
