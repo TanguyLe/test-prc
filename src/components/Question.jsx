@@ -19,7 +19,7 @@ function Question(props) {
                     Object.keys(props.question.answers).map(
                         (answer, index) => (
                             <Button
-                                className="mx-1 shadow-none"
+                                className="m-1 shadow-none"
                                 variant={ANSWERS_TO_COLORS[answer] || ANSWERS_TO_COLORS.default}
                                 onClick={() => props.onClickButton(answer, answers[answer])}
                                 active={false}
