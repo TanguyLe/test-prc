@@ -84,7 +84,7 @@ class EndDisplay extends React.Component {
 
         return <div className={"App-column-container"}>
                 <div>C'est fini, ton score est {scoreDiv} !</div>
-                <div style={{fontSize: "10px"}}>
+                <div style={{fontSize: "13px"}}>
                     Au cas où tu te demanderais, plus ton score est élevé et plus tu as fait de la merde.
                 </div>
                 <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
