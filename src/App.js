@@ -83,10 +83,10 @@ class App extends React.Component {
                                 onClickButton={this.handleAnswerClick}/>;
         return (
             <div className="App">
-                <header className="App-header App-column-container">
+                <main className="App-main App-column-container">
                     <img src={logo} className={logoClassName} alt="logo"/>
                     {display}
-                </header>
+                </main>
                 <Footer/>
             </div>
         );
