@@ -68,7 +68,7 @@ class EndDisplay extends React.Component {
         currentSentenceIndex = Object.keys(SENTENCES_SCORE)[currentSentenceIndex - 1];
 
         const shareText = (
-            `Je viens de finir mon test prc sur https://www.test-prc.fr avec un score de ${totalScore}, `
+            `Je viens de finir mon test PRC sur https://www.test-prc.fr avec un score de ${totalScore}, `
             + "à ton tour de voir si tu as été(e) respectueux(se) du Covid !"
         );
         const width = window.innerWidth|| document.documentElement.clientWidth||
