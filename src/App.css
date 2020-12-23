@@ -41,7 +41,7 @@ html, body {
   color: white;
   height: calc(100% - calc(30px + 1vmin));
   padding: 10px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .App-graph-container {
