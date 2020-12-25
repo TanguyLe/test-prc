@@ -1,5 +1,7 @@
 const data = require("../src/data/questions.json");
 
+export const VERSION = "0.2.0";
+
 export const ALL_CATEGORIES = {
     "health": "Santé et Hygiène",
     "dumbness": "Stupidité",

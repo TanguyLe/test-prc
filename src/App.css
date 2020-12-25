@@ -54,14 +54,24 @@ html, body {
   margin-top: 20px;
 }
 
-.Footer {
+.App-footer {
   height: calc(30px + 1vmin);
   justify-content: center;
   display: flex;
-  flex-direction: column;
-  font-size: calc(5px + 1vmin);
+  flex-direction: row;
+  font-size: calc(4px + 1vmin);
   background-color: #2a383d;
   color: white;
+}
+
+.App-footer-element {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.25rem 0 1.25rem;
+  position: relative;
+  border: 0 solid rgba(0,0,0,.125);
 }
 
 @keyframes App-logo-spin {

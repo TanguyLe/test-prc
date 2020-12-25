@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update the setpoints of the end messages to better reflect the use
 - Add the version number to html of the root div as a data attribute
 - Add a changelog
+- Single source of truth for the version and improved footer with questions' version
 
 
 ## [0.1.0] - 2020-12-18
