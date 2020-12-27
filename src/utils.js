@@ -3,11 +3,11 @@ const data = require("../src/data/questions.json");
 export const VERSION = "0.2.0";
 
 export const ALL_CATEGORIES = {
-    "health": "Santé et Hygiène",
+    "health": "Saleté et maladie",
     "dumbness": "Stupidité",
-    "rules": "Respect des règles",
-    "moral": "Moralité",
-    "productivity": "Productivité"
+    "rules": "Irrespect des règles",
+    "moral": "Immoralité",
+    "productivity": "Glandouille"
 };
 
 export const arraySum = (array) =>  array.reduce((a, b) => a + b, 0);
