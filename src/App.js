@@ -7,7 +7,7 @@ import Question from './components/Question';
 import EndDisplay from "./components/EndDisplay";
 import Footer from "./components/Footer";
 import data from './data/questions.json'
-import {ALL_CATEGORIES, objectCopy} from "./utils";
+import {ALL_CATEGORIES, VERSION, objectCopy} from "./utils";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -82,7 +82,7 @@ class App extends React.Component {
             display = <Question question={data[this.state.currentQuestionIndex]}
                                 onClickButton={this.handleAnswerClick}/>;
         return (
-            <div className="App">
+            <div className="App" data-version={VERSION}>
                 <main className="App-main App-column-container">
                     <img src={logo} className={logoClassName} alt="logo"/>
                     {display}

@@ -9,12 +9,12 @@ import {arraySum, getScoresStats} from "../utils";
 
 const SENTENCES_SCORE = {
     1: "Tu as fait un score très, très bas, tu es es sûr d'être vivant ?",
-    10: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
-    25: "T'as plutôt fait attention, continue comme ça bravo !",
-    50: "T'as un peu cherché les problèmes quand même, ça commence.",
-    75: "Ouais, pas trop respectueux quand même. Tu y penses à la sensibilité du covid ?",
-    90: "Ah là, t'as carrément abusé. Tu as activement contribué à la propagation du virus.",
-    99: "Soit t'as fait exprès, soit le respect tu le cherche encore."
+    5: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
+    10: "T'as un peu cherché les problèmes quand même, ça commence.",
+    30: "Ouais, pas trop respectueux quand même. Tu y penses à la sensibilité du covid ?",
+    50: "Ah là, t'as carrément abusé. Tu as activement contribué à la propagation du virus.",
+    75: "Soit t'as fait exprès, soit le respect tu le cherche encore.",
+    99: "Si tu visais le score maximum, bravo tu dois y être ou presque..."
 };
 
 const FONT_SIZE = "calc(10px + 2vmin)";
@@ -84,10 +84,12 @@ class EndDisplay extends React.Component {
 
         return <div className={"App-column-container"}>
                 <div>C'est fini, ton score est {scoreDiv} !</div>
-                <div style={{fontSize: "13px"}}>
+                <div>{SENTENCES_SCORE[currentSentenceIndex]}</div>
+                <div style={{fontSize: "calc(10px + 1.5vmin)", paddingBottom: "10px"}}>
                     Au cas où tu te demanderais, plus ton score est élevé et plus tu as fait de la merde.
+                    Et c'est aussi valable pour les catégories :
                 </div>
-                <div style={{paddingBottom: "10px"}}>{SENTENCES_SCORE[currentSentenceIndex]}</div>
+
                 <div className="App-graph-container">
                     <Radar
                         data={{
