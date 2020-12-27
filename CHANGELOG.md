@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add a changelog
 - Single source of truth for the version and improved footer with questions' version
 - Change scores ranks and add a section for ppl that look for the maximum
+- Version number display with a tooltip
 
 
 ## [0.1.0] - 2020-12-18

@@ -2,6 +2,8 @@ import React from "react";
 
 import {VERSION} from "../utils";
 
+import {OverlayTrigger, Tooltip} from "react-bootstrap";
+
 const Footer = () => {
     return <div className="App-footer">
             <div style={{borderWidth: "0 1px 0 0"}} className="App-footer-element">
@@ -10,9 +12,15 @@ const Footer = () => {
                     partage aucune de vos infomations personnelles ou données de navigation.
                 </div>
             </div>
-            <div className="App-footer-element">
-                Version {VERSION.split('.')[0]} des questions.
-            </div>
+            <OverlayTrigger overlay={
+                <Tooltip>
+                    Une nouvelle version indique un changement du contenu des questions ou du calcul des points.
+                </Tooltip>
+            }>
+                <div className="App-footer-element">
+                        v{VERSION.split('.')[0]}
+                </div>
+            </OverlayTrigger>
         </div>
 };
 
