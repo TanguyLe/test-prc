@@ -9,9 +9,8 @@ import {arraySum, getScoresStats} from "../utils";
 
 const SENTENCES_SCORE = {
     1: "Tu as fait un score très, très bas, tu es es sûr d'être vivant ?",
-    2.5: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
-    5: "T'as plutôt fait attention, continue comme ça bravo !",
-    12.5: "T'as un peu cherché les problèmes quand même, ça commence.",
+    5: "Ah ouais quand même, t'as vraiment fait gaffe. Félicitations je suppose.",
+    10: "T'as un peu cherché les problèmes quand même, ça commence.",
     30: "Ouais, pas trop respectueux quand même. Tu y penses à la sensibilité du covid ?",
     50: "Ah là, t'as carrément abusé. Tu as activement contribué à la propagation du virus.",
     75: "Soit t'as fait exprès, soit le respect tu le cherche encore.",
